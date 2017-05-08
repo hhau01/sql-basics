@@ -72,13 +72,13 @@ CREATE TABLE Customers (
 ## Insert Table Data
 Single Entry:
 ```sql
-INSERT INTO Customers (FirstName, LastName, Email, Address, City, State, Zipcode) 
-VALUES ('Billy', 'Jean', 'billyjean@gmail.com', '5225 Figueroa Mountain Road', 'Los Olivos', 'California', '93441');
+INSERT INTO Customers (FirstName, LastName, Email, Address, City, State, Zipcode) VALUES 
+('Billy', 'Jean', 'billyjean@gmail.com', '5225 Figueroa Mountain Road', 'Los Olivos', 'California', '93441');
 ```
 Multiple Entries:
 ```sql
-INSERT INTO Customers (FirstName, LastName, Email, Address, City, State, Zipcode) 
-VALUES ('John', 'Doe', 'jdoe@gmail.com', '555 Fake St.', 'San Francisco', 'California', '12345'), 
+INSERT INTO Customers (FirstName, LastName, Email, Address, City, State, Zipcode) VALUES 
+('John', 'Doe', 'jdoe@gmail.com', '555 Fake St.', 'San Francisco', 'California', '12345'), 
 ('Jane', 'Doe', 'janed@gmail.com', '123 Folk Ave.', 'Redwood City', 'California', '96548'), 
 ('Bill', 'Joe', 'billjoe@gmail.com', '235 Main St.', 'Manhattan', 'New York', '10036'), 
 ('Johnny', 'Rocket', 'jrocket@gmail.com', '625 Rocket St.', 'Rocketown', 'New Jersey', '16548');
