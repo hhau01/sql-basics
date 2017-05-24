@@ -12,6 +12,7 @@ Fundamentals of SQL
 * [Join tables together](#joins)
 * [Use aliases](#aliases)
 * [Built-in SQL Functions](#sql-aggregate-functions)
+* [Using Views](#sql-views)
 
 ## What is SQL
 * Structured Query Language
@@ -402,6 +403,77 @@ SELECT Age, COUNT(Age)
 FROM Customers
 GROUP BY Age
 HAVING COUNT(Age) >= 2;
+```
+
+## SQL Views
+A view is a composition of a table in the form of a predefined SQL query. A view can be created from one or many tables which depends on the written SQL query.
+
+Views allow users to do the following -
+* Structure data in a way that users or classes of users find natural or intuitive.
+* Restrict access to the data in such a way that a user can see and (sometimes) modify exactly what they need and no more.
+* Summarize data from various tables which can be used to generate reports.
+
+**Create a View:**
+```sql
+CREATE VIEW CustomersEmails AS
+SELECT FirstName, LastName, Email
+FROM Customers;
+```
+
+Query the View the same way you query an actual table:
+```sql
+SELECT * FROM CustomersEmails;
+```
+
+The **WITH CHECK** Option ensures that all UPDATE and INSERTs satisfy the condition(s) in the view definition:
+```sql
+CREATE VIEW CustomersRetired AS
+SELECT FirstName, LastName, Age
+FROM Customers
+WHERE Age >= 65
+WITH CHECK OPTION;
+```
+
+**Updating a View:**
+
+A view can be updated under certain conditions:
+* The SELECT clause may not contain the keyword DISTINCT.
+* The SELECT clause may not contain summary functions.
+* The SELECT clause may not contain set functions.
+* The SELECT clause may not contain set operators.
+* The SELECT clause may not contain an ORDER BY clause.
+* The FROM clause may not contain multiple tables.
+* The WHERE clause may not contain subqueries.
+* The query may not contain GROUP BY or HAVING.
+* Calculated columns may not be updated.
+* All NOT NULL columns from the base table must be included in the view in order for the INSERT query to function.
+
+If a View satisfies all above-mentioned rules, it can be updated:
+```sql
+UPDATE CustomersEmails
+SET Email = 'johndoe@gmail.com'
+WHERE FirstName = 'John'
+AND LastName = 'Doe';
+```
+**NOTE: This change is reflected on the base table Customers as well**
+
+**Inserting Rows into a View:**
+
+Rows of data can be inserted into a View, but the same rules that apply to the UPDATE command also apply to the INSERT command.
+
+**Deleting Rows from a View:**
+```sql
+DELETE FROM CustomersEmails
+WHERE LastName = 'Doe';
+```
+**NOTE: This change is reflected on the base table Customers as well**
+
+**Dropping Views:**
+
+Drop a View when it is no longer needed.
+
+```sql
+DROP VIEW CustomersEmails;
 ```
 
 ### Thank you for stopping by! :+1:
