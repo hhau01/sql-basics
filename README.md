@@ -1,7 +1,7 @@
 # SQL Basics
 Fundamentals of SQL
 
-#### Table of Contents
+## Table of Contents
 * [Overview of SQL](#what-is-sql)
 * [Create, alter, and delete databases & tables](#create-and-use-database)
 * [Insert, update, and delete records](#insert-table-data)
@@ -14,13 +14,13 @@ Fundamentals of SQL
 * [Built-in SQL Functions](#sql-aggregate-functions)
 * [Using Views](#sql-views)
 
-#### What is SQL
+## What is SQL
 * Structured Query Language
 * Designed to work with databases
 * Been around for a really long time
 * Used on individual & corporate servers
 
-#### Popular Databases That Use SQL
+## Popular Databases That Use SQL
 * MySQL
 * PostgreSQL
 * Oracle
@@ -32,7 +32,7 @@ Fundamentals of SQL
 * MariaDB
 * Openbase
 
-#### SQL Tools
+## SQL Tools
 * Command Line Client
 * Adminer
 * Firebird
@@ -42,7 +42,7 @@ Fundamentals of SQL
 * Sequel Pro (Mac)
 * HeidiSQL
 
-#### Create and Use Database
+## Create and Use Database
 
 ```sql
 CREATE DATABASE test;
@@ -52,7 +52,7 @@ CREATE DATABASE test;
 USE test;
 ```
 
-#### Create Table
+## Create Table
 
 ```sql
 CREATE TABLE Customers (
@@ -74,7 +74,7 @@ CREATE TABLE Customers (
 * **INT:** integer value
 * **PRIMARY KEY:** unique identifier --typically `id` is used
 
-#### Insert Table Data
+## Insert Table Data
 
 Single Entry:
 ```sql
@@ -91,7 +91,7 @@ INSERT INTO Customers (FirstName, LastName, Email, Address, City, State, Zipcode
 ('Johnny', 'Rocket', 'jrocket@gmail.com', '625 Rocket St.', 'Rocketown', 'New Jersey', '16548');
 ```
 
-#### Update Table Data
+## Update Table Data
 ```sql
 UPDATE Customers
 SET Email = 'test@gmail.com'
@@ -99,14 +99,14 @@ WHERE id = 3;
 ```
 \*\*IMPORTANT: DO NOT FORGET THE `WHERE` OTHERWISE ALL THE `Emails` WILL BE OVERWRITTEN\*\*
 
-#### Delete Table Data
+## Delete Table Data
 ```sql
 DELETE FROM Customers
 WHERE id = 3;
 ```
 \*\*IMPORTANT: DO NOT FORGET THE `WHERE` OTHERWISE ALL THE `Customers` WILL BE DELETED\*\*
 
-#### Alter Table
+## Alter Table
 
 ```sql
 ALTER TABLE Customers ADD TestColumn VARCHAR(255);
@@ -127,7 +127,7 @@ ALTER TABLE Customers
 ADD COLUMN Age INT;
 ```
 
-#### Select Data
+## Select Data
 
 Select all from `Customers` table:
 ```sql
@@ -171,7 +171,7 @@ SELECT * FROM Customers WHERE Age < 30;
 
 <br>
 
-#### Common SQL Operators
+## Common SQL Operators
 
 Operator | Description | Example
 |---|---|---|
@@ -190,7 +190,7 @@ AS | Used to change a field name when viewing results | SELECT Employee AS 'Depa
 
 <br>
 
-#### Operator Examples
+## Operator Examples
 
 ```sql
 SELECT * FROM Customers
@@ -225,7 +225,7 @@ WHERE State IN ('New York', 'California');
 
 <br>
 
-#### Indexes
+## Indexes
 * An index can be created in a table to find data more quickly and efficiently
 * Users do not see indexes, they are just used to speed up searches/queries
 * Only create indexes on columns (and tables) that will be frequently searched against
@@ -245,7 +245,7 @@ ON Customers;
 
 <br>
 
-#### Foreign Key Constraint
+## Foreign Key Constraint
 * The `FOREIGN KEY` constraint is used to prevent actions that would destroy links between tables.
 * The `FOREIGN KEY` constraint also prevents invalid data from being inserted into the foreign key column, because it has to be one of the values contained in the table it points to.
 
@@ -308,7 +308,7 @@ ALTER TABLE Orders
 DROP FOREIGN KEY FK_CustomerId;
 ```
 
-#### Joins
+## Joins
 
 * Used to combine rows from two or more tables based on a common field between them
 * Types: `INNER JOIN`, `LEFT JOIN`, `RIGHT JOIN`, `FULL JOIN`
@@ -388,7 +388,7 @@ ORDER BY Orders.OrderNumber;
 
 <br>
 
-#### Aliases
+## Aliases
 
 Make column names more readable
 ```sql
@@ -408,7 +408,7 @@ FROM Customers AS c, Orders AS o;
 
 <br>
 
-#### SQL Aggregate Functions
+## SQL Aggregate Functions
 
 Get average:
 ```sql
@@ -463,7 +463,7 @@ HAVING COUNT(Age) >= 2;
 
 <br>
 
-#### SQL Views
+## SQL Views
 
 A view is a composition of a table in the form of a predefined SQL query. A view can be created from one or many tables which depends on the written SQL query.
 
@@ -536,5 +536,5 @@ Drop a View when it is no longer needed.
 DROP VIEW CustomersEmails;
 ```
 
-##### Thank you for stopping by! :+1:
+### Thank you for stopping by! :+1:
 <br>
